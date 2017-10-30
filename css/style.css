@@ -11,6 +11,8 @@ Dark green: #28b485
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 body {
@@ -40,6 +42,11 @@ body {
   position: absolute;
   top: 40px;
   left: 40px;
+  transition: .2s;
+}
+
+.logo-box:hover {
+  transform: scale(1.1);
 }
 
 .logo {
@@ -63,6 +70,7 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+  animation: moveInFromLeft 1s cubic-bezier(.16,.86,.71,1.17);
 }
 
 .heading-primary-sub {
@@ -70,4 +78,15 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+  animation: moveInFromRight 1s cubic-bezier(.16,.86,.71,1.17);
+}
+
+@keyframes moveInFromLeft {
+  0% { opacity: 0; transform: translateX(-100px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes moveInFromRight {
+  0% { opacity: 0; transform: translateX(100px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
